@@ -5,4 +5,6 @@ class Api::ProductsController < ApplicationController
   end
 
   def all_individual_products
+    render "all_products.json.jb"
+  end
 end

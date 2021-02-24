@@ -1,0 +1,10 @@
+all_products = []
+@products.map! do |product|
+  all_products << product
+end
+
+{
+  @products.map! do |product|
+    all_products << product
+  products: @products,
+}
