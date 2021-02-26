@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   namespace :api do
     get "/product_all" => "products#all_products"
     get "/all_individual_products" => "products#all_individual_products"
+    get "product_choose/:id" => "products#item_choice"
   end
 end
