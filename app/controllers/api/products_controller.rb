@@ -13,4 +13,8 @@ class Api::ProductsController < ApplicationController
     @products = Product.find(params[:id])
     render "product_1.json.jb"
   end
+
+  def username_password
+    @products
+  end
 end
