@@ -5,7 +5,11 @@ class Api::ProductsController < ApplicationController
   end
 
   def all_individual_products
-    render "all_products.json.jb"
+    @products = Product.all
+    individual_products = @products.each do |product|
+    end
+    @products = individual_products
+    render "product.json.jb"
   end
 
   def item_choice
