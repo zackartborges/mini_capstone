@@ -4,13 +4,13 @@ class Api::ProductsController < ApplicationController
     render "product.json.jb"
   end
 
-  def all_individual_products
-    @products = Product.all
-    individual_products = @products.each do |product|
-    end
-    @products = individual_products
-    render "product.json.jb"
-  end
+  # def all_individual_products
+  #   @products = Product.all
+  #   individual_products = @products.each do |product|
+  #   end
+  #   @products = individual_products
+  #   render "product.json.jb"
+  # end
 
   def show
     # item = params[:item_select]
@@ -18,7 +18,17 @@ class Api::ProductsController < ApplicationController
     render "product.json.jb"
   end
 
-  def username_password
-    @products
+  # def username_password
+  #   @products
+  # end
+
+  def create
+    @product = Product.new ({
+      name: params[:name],
+      image_url: params[:image_url],
+      description: params[:description],
+    })
+    @product.save
+    render "show.json.jb"
   end
 end
