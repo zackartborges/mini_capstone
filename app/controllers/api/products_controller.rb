@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
   def index
     @products = Product.all
-    render "product.json.jb"
+    render "index.json.jb"
   end
 
   # def all_individual_products
@@ -14,8 +14,8 @@ class Api::ProductsController < ApplicationController
 
   def show
     # item = params[:item_select]
-    @products = Product.find(params[:id])
-    render "product.json.jb"
+    @product = Product.find(params[:id])
+    render "show.json.jb"
   end
 
   # def username_password
@@ -23,15 +23,25 @@ class Api::ProductsController < ApplicationController
   # end
 
   def create
-    @product = Product.new ({
+    @product = Product.new(
       name: params[:name],
-      price: params[:price]
+      price: params[:price],
       image_url: params[:image_url],
       description: params[:description],
-
-    })
+    )
     @product.save
     render "show.json.jb"
+  end
+
+  def update
+    id = params[:id]
+    @product = Product.find(id) 
+    ({
+      @product.name = params[:name] || @product.name ,
+      @product.price = params[:price] || @product.price ,
+      @product.image_url = params[:image_url] || @product.image_url ,
+      @product.description = params[:description] || @product.description ,
+    })
   end
 
   def destroy
