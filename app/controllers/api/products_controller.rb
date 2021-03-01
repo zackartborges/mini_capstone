@@ -1,7 +1,7 @@
 class Api::ProductsController < ApplicationController
-  def all_products
+  def index
     @products = Product.all
-    render "product_1.json.jb"
+    render "product.json.jb"
   end
 
   def all_individual_products
@@ -12,10 +12,10 @@ class Api::ProductsController < ApplicationController
     render "product.json.jb"
   end
 
-  def item_choice
+  def show
     # item = params[:item_select]
     @products = Product.find(params[:id])
-    render "product_1.json.jb"
+    render "product.json.jb"
   end
 
   def username_password
