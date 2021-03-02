@@ -1,7 +1,15 @@
+render partial: "product.json.jb", locals: {product: product}
 {
   id: @product.id,
   name: @product.name,
   price: @product.price,
   image_url: @product.image_url,
   description: @product.description,
+  discounted: @product.is_discounted?
+  formatted: {
+    discounted: @product.is_discounted?,
+    tax: @product.tax,
+    total: @product.total,
+
+  },
 }
