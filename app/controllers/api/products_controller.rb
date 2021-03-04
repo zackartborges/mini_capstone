@@ -1,6 +1,9 @@
 class Api::ProductsController < ApplicationController
   def index
     @products = Product.all
+    # if params[:search]
+
+    # end
     render "index.json.jb"
   end
 
