@@ -39,8 +39,10 @@ class Api::ProductsController < ApplicationController
     (@product.name = params[:name] || @product.name
       @product.price = params[:price] || @product.price
       @product.image_url = params[:image_url] || @product.image_url
-      @product.description = params[:description] || @product.description)
+      @product.description = params[:description] || @product.description
+      @product.inventory = params[:inventory] || @product.inventory)
     @product.save
+    render json: { message: "product updated" }
   end
 
   def destroy
