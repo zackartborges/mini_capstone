@@ -4,13 +4,13 @@ class Api::ProductsController < ApplicationController
     # if params[:search]
 
     # end
-    render "index.json.jb"
+    render "product_index.json.jb"
   end
 
   def show
     # item = params[:item_select]
     @product = Product.find(params[:id])
-    render "show.json.jb"
+    render "product_show.json.jb"
   end
 
   def create
@@ -21,7 +21,7 @@ class Api::ProductsController < ApplicationController
       description: params[:description],
     )
     if @product.save
-      render "show.json.jb"
+      render "product_show.json.jb"
     else
       render json: { errors: @product.errors.full_messages }, status: 406
     end
@@ -37,7 +37,7 @@ class Api::ProductsController < ApplicationController
       @product.description = params[:description] || @product.description
       @product.inventory = params[:inventory] || @product.inventory)
     if @product.save
-      render "show.json.jb"
+      render "product_show.json.jb"
     else
       render json: { errors: @product.errors.full_messages }, status: 406
     end
