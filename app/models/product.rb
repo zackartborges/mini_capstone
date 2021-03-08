@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  belongs_to :supplier
   validates :name, presence: true
   validates :inventory, presence: true
   validates :inventory, numericality: { greater_than: 0 }
@@ -6,10 +7,13 @@ class Product < ApplicationRecord
   validates :name, uniqueness: true
   validates :description, length: { in: 5..200 }
 
-  def supplier
-    Product.where(supplier_id: id)
-    # return supplier.name
-  end
+  # def supplier
+  #   Supplier.find_by(id: supplier_id)
+  # end
+
+  # def image_urls
+  #   image_urls.where(product_id: id)
+  # end
 
   def is_discounted?
     price <= 10
