@@ -6,6 +6,11 @@ class Product < ApplicationRecord
   validates :name, uniqueness: true
   validates :description, length: { in: 5..200 }
 
+  def supplier
+    Product.where(supplier_id: id)
+    # return supplier.name
+  end
+
   def is_discounted?
     price <= 10
   end

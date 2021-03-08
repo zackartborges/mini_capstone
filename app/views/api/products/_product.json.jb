@@ -8,4 +8,5 @@
   tax: product.tax.round(2),
   total: product.total.round(2),
   inventory: product.inventory,
+  supplier: product.supplier,
 }
