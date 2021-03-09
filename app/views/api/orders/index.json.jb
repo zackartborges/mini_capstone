@@ -1,0 +1,3 @@
+@orders.map do |order|
+  render parial: "order.json.jb", locals: { orders: order }
+end
