@@ -1,10 +1,15 @@
 class Api::ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if current_user
+      @products = Product.all
+      render "product_index.json.jb"
+    else
+      render json: []
+    end
     # if params[:search]
 
     # end
-    render "product_index.json.jb"
+
   end
 
   def show
