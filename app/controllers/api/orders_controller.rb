@@ -1,11 +1,9 @@
 class Api::OrdersController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    if current_user
-      @orders = Order.where(user_id: current_user.id)
-      render "index.json.jb"
-    else
-      render json: { error: "Login required." }
-    end
+    @orders = Order.where(user_id: current_user.id)
+    render "index.json.jb"
   end
 
   def create
@@ -14,21 +12,17 @@ class Api::OrdersController < ApplicationController
     calculated_tax = calculated_subtotal * 0.09
     calculated_total = calculated_tax + calculated_subtotal
 
-    if current_user
-      @order = Order.new(
-        user_id: current_user.id,
-        product_id: params[:product_id],
-        quantity: params[:quantity],
-        subtotal: calculated_subtotal,
-        tax: calculated_tax,
-        total: calculated_total,
+    @order = Order.new(
+      user_id: current_user.id,
+      product_id: params[:product_id],
+      quantity: params[:quantity],
+      subtotal: calculated_subtotal,
+      tax: calculated_tax,
+      total: calculated_total,
 
-      )
-      @order.save
-      render "show.json.jb"
-    else
-      render json: { message: "unauthorized" }, status: 401
-    end
+    )
+    @order.save
+    render "show.json.jb"
   end
 
   def show
