@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
   belongs_to :supplier
+  has_many :orders
   validates :name, presence: true
   validates :inventory, presence: true
   validates :inventory, numericality: { greater_than: 0 }

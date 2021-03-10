@@ -1,5 +1,0 @@
-{
-  user_id: order.id
-  product_id: product.id
-  quantity: order.quantity
-}
