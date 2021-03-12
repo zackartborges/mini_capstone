@@ -9,3 +9,9 @@
 
 # Product.create(name: "Scorpion King in blu ray", price: 350.00, image_url: "sjwuahe", description: "Best movie ever!")
 # Supplier.create(name: "Big City Classic Time Items!", email: "wowwowitems@example.com", phone_number: 39200139)
+# CategoryProduct.create(product_id: 9, category_id: 3)
+# CategoryProduct.create(product_id: 1, category_id: 5)
+# CategoryProduct.create(product_id: 2, category_id: 3)
+# CategoryProduct.create(product_id: 2, category_id: 5)
+# CategoryProduct.create(product_id: 16, category_id: 4)
+# CategoryProduct.create(product_id: 16, category_id: 5)

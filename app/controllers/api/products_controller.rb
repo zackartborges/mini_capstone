@@ -6,10 +6,6 @@ class Api::ProductsController < ApplicationController
     render "product_index.json.jb"
   end
 
-  # if params[:search]
-
-  # end
-
   def show
     # item = params[:item_select]
     @product = Product.find(params[:id])

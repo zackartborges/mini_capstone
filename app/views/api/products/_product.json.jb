@@ -9,4 +9,5 @@
   total: product.total.round(2),
   inventory: product.inventory,
   supplier_id: product.supplier_id,
+  categories: product.categories,
 }
