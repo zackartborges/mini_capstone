@@ -1,14 +1,14 @@
 class Api::ProductsController < ApplicationController
-  before_action :authenticate_admin except: [:index, :show]
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
-      @products = Product.all
-      render "product_index.json.jb"
-    end
-    # if params[:search]
-
-    # end
-
+    @products = Product.all
+    render "product_index.json.jb"
   end
+
+  # if params[:search]
+
+  # end
 
   def show
     # item = params[:item_select]
