@@ -3,6 +3,10 @@ class Api::ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    end
     render "product_index.json.jb"
   end
 

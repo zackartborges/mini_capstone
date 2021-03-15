@@ -15,3 +15,18 @@
 # CategoryProduct.create(product_id: 2, category_id: 5)
 # CategoryProduct.create(product_id: 16, category_id: 4)
 # CategoryProduct.create(product_id: 16, category_id: 5)
+
+=begin
+  set up a carted products model:
+  user_id, product_id, quantity, status, order_id
+  change order model => remove product Id and quantity
+  make carted
+  add associations to CartedProducts : 
+  has_many :users, products, orders
+  users: 
+  has_many :carted_products
+  has_many : products, through carted_products
+  has_many :orders
+
+
+end
