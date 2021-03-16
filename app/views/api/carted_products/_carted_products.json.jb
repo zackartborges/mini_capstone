@@ -1,0 +1,7 @@
+{
+  name: @carted_product.product.name,
+  product_id: @carted_product.product.id,
+  quantity: @carted_product.quantity,
+  status: @carted_product.status,
+  order_id: @carted_product.order_id,
+}
